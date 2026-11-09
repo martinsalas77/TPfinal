@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Lexend:wght@100..900&display=swap');
+
+/* =========================================
+   VARIABLES CSS (CUSTOM PROPERTIES)
+   ========================================= */
+:root {
+    /* Colores Principales */
+    --primary-color: #1055C9;
+    --primary-dark: #05339C;
+    --accent-color: #41A67E;
+    --yellow-color: #E5C95F;
+    --bg-white: #ffffff;
+    --text-light: #ffffff;
+    
+    /* Tipografías */
+    --font-base: "Lexend", sans-serif;
+    --font-heading: "Bungee", sans-serif;
+
+    /* Sombras y Bordes */
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 20px;
+    --shadow-box: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-base);
+    font-optical-sizing: auto;
+    background-color: var(--bg-white);
+}
+
+nav {
+    width: 100%;
+    background-color: color-mix(in oklab, var(--accent-color) 90%, transparent);
+    backdrop-filter: blur(12px);
+    color: var(--text-light);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-light);
+    padding: 20px;
+    text-decoration: none;
+}
+
+nav ul li a img {
+    width: 18px;
+    height: 18px;
+}
+
+nav ul li:hover {
+    background-color: var(--primary-color);
+}
+
+header {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+}
+
+.hero {
+    width: 100%;
+    height: 300px;
+    background-image: url(../Assets/img/Fondo\ Header.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: var(--yellow-color);
+    color: var(--text-light);
+    text-align: center;
+    line-height: 50px;
+}
+
+.box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
+    border-radius: var(--border-radius-lg);
+    color: var(--text-light);
+    gap: 10px;
+    padding: 20px 0;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-style: normal;
+}
+
+.reserva, .torneo, .ranking {
+    width: 150px;
+    height: 150px;
+    margin-top: 15px;
+    border-radius: var(--border-radius-lg);
+    transition: transform 0.5s ease;
+}
+
+.reserva:hover, .torneo:hover, .ranking:hover {
+    transform: scale(1.08);
+}
+
+.subir {
+    width: 80px;
+    height: 45px;
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    border: 2px solid;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    line-height: 40px;
+    position: fixed;
+    bottom: 55px;
+    right: 15px;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   GRID DE CANCHAS (DESKTOP DEFAULT)
+   ========================================= */
+.Canchas {
+    display: grid;
+    grid-template-columns: 1fr 300px 450px; 
+    grid-template-areas: 
+        "titulo   mapa   img"
+        "logo     mapa   img"
+        "text1    mapa   img"
+        "text2    mapa   img";
+    gap: 20px;
+    padding: 40px 20px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cancha-titulo { 
+    grid-area: titulo; 
+}
+
+.cancha-logo { 
+    grid-area: logo; 
+}
+
+.cancha-logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: var(--bg-white);
+    padding: 4px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.info-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.text1 { grid-area: text1; }
+.text2 { grid-area: text2; }
+
+.mapa-container {
+    grid-area: mapa;
+    width: 100%;
+    height: 100%;
+}
+
+.mapa-iframe {
+    width: 100%;
+    height: 280px;
+    border: 0;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-box);
+}
+
+.imagen-container {
+    grid-area: img;
+    width: 100%;
+}
+
+.imagen-cancha {
+    width: 100%;
+    height: 380px; 
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.btn-contacto {
+    display: inline-block;
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-contacto:hover {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+/* Formulario */
+.formulario {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario input, 
+.formulario textarea {
+    padding: 10px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid #ccc;
+    font-family: inherit;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================= */
+
+/* --- TABLETS (Hasta 760px) --- */
+@media screen and (max-width: 760px) {
+    nav ul {
+        justify-content: center;
+    }
+    
+    nav ul li a {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    .Canchas {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "titulo   titulo"
+            "logo     logo"
+            "text1    text2"
+            "mapa     mapa"
+            "img      img";
+        gap: 15px;
+        padding: 25px 15px;
+    }
+
+    .mapa-iframe {
+        height: 220px;
+    }
+
+    .imagen-cancha {
+        height: 280px;
+    }
+
+    .box {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 20px;
+    }
+}
+
+/* --- CELULARES (Hasta 480px) --- */
+@media screen and (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        padding: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 1.4rem;
+    }
+
+    /* Cambio a 1 sola columna vertical */
+    .Canchas {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "titulo"
+            "logo"
+            "text1"
+            "text2"
+            "img";
+        padding: 20px 10px;
+    }
+
+    /* Ocultar el mapa completamente en celulares */
+    .mapa-container {
+        display: none !important;
+    }
+
+    .imagen-cancha {
+        height: 220px;
+    }
+
+    .box {
+        flex-direction: column;
+    }
+
+    .subir {
+        width: 60px;
+        height: 40px;
+        line-height: 35px;
+        bottom: 20px;
+        right: 10px;
+        font-size: 0.8rem;
+    }
+}
